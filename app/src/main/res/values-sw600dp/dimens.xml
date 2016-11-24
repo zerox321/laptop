@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="tileitem">2</integer>
+    <integer name="tileitem_land">4</integer>
+    <integer name="carditem">2</integer>
+
+    <integer name="carditem_land">4</integer>
+</resources>

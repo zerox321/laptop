@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Laptop</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="item_title">Lapttop Title</string>
+    <string name="item_desc">Lapttop Description </string>
+    <string name="title_activity_detail_">Detail_Activity</string>
+    <string name="action_share">Share</string>
+    <string name="title_activity_buy">BuyActivity</string>
+    <string name="namehint">Full name</string>
+    <string name="phonehint">Phone number</string>
+    <string name="btnOrder">Order</string>
+</resources>
