@@ -6,11 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/card_height"
     android:layout_gravity="center"
-    android:layout_marginBottom="@dimen/md_keylines"
-    android:layout_marginLeft="@dimen/md_keylines"
-    android:layout_marginRight="@dimen/md_keylines"
-    android:elevation="2dp"
-    android:foreground="?attr/selectableItemBackground">
+    android:foreground="?attr/selectableItemBackground"
+    android:padding="@dimen/md_keylines"
+    app:cardElevation="@dimen/detail_card_elevation"
+    app:cardPreventCornerOverlap="false">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -44,6 +43,7 @@
             android:layout_marginLeft="@dimen/md_keylines"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:textColor="@color/cardview_light_background"
+            android:textSize="@dimen/article_heading"
             tools:text="@string/item_title" />
 
         <TextView

@@ -39,6 +39,8 @@ public class CardContentFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         int Item = getResources().getInteger(R.integer.carditem);
+        int tilePadding = getResources().getDimensionPixelSize(R.dimen.tile_padding);
+        recyclerView.setPadding(tilePadding, tilePadding, tilePadding, tilePadding);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), Item));
         return recyclerView;
 
@@ -50,9 +52,13 @@ public class CardContentFragment extends Fragment {
         super.onConfigurationChanged(newConfig);
         if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
             int TileItem = getResources().getInteger(R.integer.carditem);
+            int tilePadding = getResources().getDimensionPixelSize(R.dimen.tile_padding);
+            recyclerView.setPadding(tilePadding, tilePadding, tilePadding, tilePadding);
             recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), TileItem));
         } else if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             int TileItem = getResources().getInteger(R.integer.carditem_land);
+            int tilePadding = getResources().getDimensionPixelSize(R.dimen.tile_padding);
+            recyclerView.setPadding(tilePadding, tilePadding, tilePadding, tilePadding);
             recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), TileItem));
 
 
