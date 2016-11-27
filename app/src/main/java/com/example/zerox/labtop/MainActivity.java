@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
             pd.show();
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference reference = database.getReference();
-            DatabaseReference laptopRefrence = reference.child("Laptop");
+            DatabaseReference laptopRefrence = reference.child("laps");
             laptopRefrence.keepSynced(true);
             laptopRefrence.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-
+                    Log.e("", "fail: ");
                 }
 
             });

@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "981308489694",
-    "firebase_url": "https://labtop-88015.firebaseio.com",
-    "project_id": "labtop-88015",
-    "storage_bucket": "labtop-88015.appspot.com"
+    "project_number": "293553711374",
+    "firebase_url": "https://laptop-ff455.firebaseio.com",
+    "project_id": "laptop-ff455",
+    "storage_bucket": "laptop-ff455.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:981308489694:android:9a322bf265732c16",
+        "mobilesdk_app_id": "1:293553711374:android:9a322bf265732c16",
         "android_client_info": {
           "package_name": "com.example.zerox.labtop"
         }
       },
       "oauth_client": [
         {
-          "client_id": "981308489694-n2p8e3vjaran469re10h4mfa18ercgr9.apps.googleusercontent.com",
+          "client_id": "293553711374-tqjicjdsi0p861t6e44g1qhb7r4v26js.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBgRqyVZBjZratGzluFKObzgwmZ78yjVMI"
+          "current_key": "AIzaSyB7251u80TN1Kzbm2xdiXfdqlJhPFXdU7A"
         }
       ],
       "services": {
