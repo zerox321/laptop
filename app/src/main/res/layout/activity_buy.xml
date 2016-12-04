@@ -11,6 +11,11 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     tools:context="com.example.zerox.labtop.BuyActivity">
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
     <EditText
         android:id="@+id/ETName"
         android:layout_width="match_parent"
@@ -24,7 +29,13 @@
         android:maxLines="1"
         android:textColor="@color/primary_text"
         android:textColorHint="@color/secondary_text" />
+    </android.support.design.widget.TextInputLayout>
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
     <EditText
         android:id="@+id/ETPhone"
         android:layout_width="match_parent"
@@ -38,15 +49,16 @@
         android:maxLines="1"
         android:textColor="@color/primary_text"
         android:textColorHint="@color/secondary_text" />
+    </android.support.design.widget.TextInputLayout>
 
-    <Button
+    <android.support.v7.widget.AppCompatButton
         android:id="@+id/btnOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:background="@drawable/btn_order_behaviour"
         android:text="@string/btnOrder"
         android:textAllCaps="false"
-        android:textColor="@color/icons" />
+        android:textColor="@color/icons"
+        android:theme="@style/MyButton" />
 
 </LinearLayout>

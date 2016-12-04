@@ -48,6 +48,7 @@ public class TileContentAdapter extends RecyclerView.Adapter<TileContentAdapter.
                     .load(laptop.getImage())
                     .error(R.mipmap.ic_launcher)
                     .into(customViewHolder.imageView);
+            Picasso.with(mContext).setIndicatorsEnabled(true);
 
         }
 
