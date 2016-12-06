@@ -164,21 +164,10 @@ public class MainActivity extends AppCompatActivity {
         FetchFavorites fetchFavorites = new FetchFavorites(getBaseContext());
         fetchFavorites.execute();
 
-        new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                try {
-                    Thread.sleep(2500);
-                    setupViewPager(viewPager);
-                    tabs.setupWithViewPager(viewPager);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }.start();
+        setupViewPager(viewPager);
+        tabs.setupWithViewPager(viewPager);
 
-        Toast.makeText(getBaseContext(), "Favorites", Toast.LENGTH_LONG).show();
+
     }
 
 
