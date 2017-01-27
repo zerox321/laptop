@@ -3,6 +3,7 @@ package com.example.zerox.labtop;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -35,8 +36,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+import static com.example.zerox.labtop.R.id.viewpager;
 
+public class MainActivity extends AppCompatActivity {
 
     public static final int COL_ID = 0;
     public static final int COL_Laptop_ID = 1;
@@ -54,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
 
     };
     public static List<Laptop> list;
+    SharedPreferences.Editor editor;
+    SharedPreferences pref;
     ViewPager viewPager;
     TabLayout tabs;
     LaptopDBHelper laptopDBHelper;
@@ -63,13 +67,49 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+        editor = pref.edit();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         // Setting ViewPager for each Tabs
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager = (ViewPager) findViewById(viewpager);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position) {
+
+                    case 0:
+                        editor.putInt("pos", 0);
+                        editor.commit();
+
+                        break;
+                    case 1:
+                        editor.putInt("pos", 1);
+                        editor.commit();
+                        // Toast.makeText(getBaseContext(),"1",Toast.LENGTH_SHORT).show();
+
+                        break;
+                    case 2:
+                        editor.putInt("pos", 2);
+                        editor.commit();
+                        // Toast.makeText(getBaseContext(),"2",Toast.LENGTH_SHORT).show();
+
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         // Set Tabs inside Toolbar
         tabs = (TabLayout) findViewById(R.id.tabs);
@@ -145,6 +185,9 @@ public class MainActivity extends AppCompatActivity {
                     setupViewPager(viewPager);
                     tabs.setupWithViewPager(viewPager);
                     pd.dismiss();
+                    int pos = pref.getInt("pos", 1);
+                    viewPager.setCurrentItem(pos);
+
                 }
 
                 @Override
@@ -182,7 +225,22 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+// put your code here...
+        int pos = pref.getInt("pos", 0);
+
+
+        viewPager.setCurrentItem(pos, true);
+        Toast.makeText(getBaseContext(), pos + "", Toast.LENGTH_SHORT).show();
+
+    }
     @Override
     protected void onStart() {
         super.onStart();
