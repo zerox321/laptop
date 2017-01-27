@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.zerox.labtop.BuyActivity;
@@ -23,6 +24,10 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import static com.squareup.picasso.Callback.EmptyCallback;
+
+
+
 /**
  * Created by Zerox on 11/11/2016.
  */
@@ -31,6 +36,7 @@ public class CardContentAdapter extends RecyclerView.Adapter<CardContentAdapter.
     private List<Laptop> Laptoplist;
     private Context mContext;
     private ShareActionProvider mShareActionProvider;
+
 
     public CardContentAdapter(Context context, List<Laptop> Laptoplist, LaptopDBHelper laptopDBHelper) {
         this.Laptoplist = Laptoplist;
@@ -46,15 +52,31 @@ public class CardContentAdapter extends RecyclerView.Adapter<CardContentAdapter.
     }
 
     @Override
-    public void onBindViewHolder(CardContentAdapter.CustomViewHolder customViewHolder, int i) {
+    public void onBindViewHolder(final CardContentAdapter.CustomViewHolder customViewHolder, int i) {
         final Laptop laptop = Laptoplist.get(i);
+
 
         //Render image using Picasso library
         if (!TextUtils.isEmpty(laptop.getImage())) {
             Picasso.with(mContext)
                     .load(laptop.getImage())
                     .error(R.mipmap.ic_launcher)
-                    .into(customViewHolder.imageView);
+                    .into(customViewHolder.imageView, new EmptyCallback() {
+
+                        @Override
+                        public void onSuccess() {
+                            customViewHolder.imageView.setVisibility(View.VISIBLE);
+                            customViewHolder.PB.setVisibility(View.GONE);
+                        }
+
+                        @Override
+                        public void onError() {
+                            customViewHolder.PB.setVisibility(View.VISIBLE);
+                            customViewHolder.imageView.setVisibility(View.INVISIBLE);
+                        }
+                    });
+
+            Picasso.with(mContext).setIndicatorsEnabled(true);
 
         }
 
@@ -93,6 +115,7 @@ public class CardContentAdapter extends RecyclerView.Adapter<CardContentAdapter.
         protected ImageButton favorite;
         protected ImageButton order;
         protected TextView price_Textview;
+        protected ProgressBar PB;
 
         public CustomViewHolder(View view) {
             super(view);
@@ -112,6 +135,8 @@ public class CardContentAdapter extends RecyclerView.Adapter<CardContentAdapter.
             this.price_Textview = (TextView) view.findViewById(R.id.price_Textview);
             this.favorite = (ImageButton) view.findViewById(R.id.favorite_button);
             this.order = (ImageButton) view.findViewById(R.id.order_button);
+            this.PB = (ProgressBar) view.findViewById(R.id.Progbar);
+            PB.setVisibility(View.VISIBLE);
 
         }
     }

@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?android:attr/selectableItemBackground"
-
     android:orientation="horizontal"
+
     android:padding="@dimen/md_keylines">
 
     <android.support.v7.widget.CardView
@@ -14,23 +14,38 @@
         android:layout_width="@dimen/avator_size"
         android:layout_height="@dimen/avator_size"
         android:innerRadius="0dp"
-        android:shape="ring"
+        android:shape="rectangle"
         android:thicknessRatio="1.9"
-        app:cardCornerRadius="25dp">
+        app:cardCornerRadius="5dp">
 
-        <ImageView
-            android:id="@+id/list_avatar"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="5dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/list_avatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher" />
+
+            <ProgressBar
+                android:id="@+id/Progbar"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:theme="@style/CircularProgress" />
+        </FrameLayout>
+
+
     </android.support.v7.widget.CardView>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:gravity="center"
+
         android:orientation="vertical">
 
         <TextView
@@ -59,6 +74,33 @@
             android:textColor="@color/secondary_text"
             android:textSize="@dimen/list_body"
             tools:text="@string/item_desc" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/price_Textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card_text"
+                android:layout_marginLeft="@dimen/md_keylines"
+                android:text="Action"
+                android:textColor="?attr/colorPrimary" />
+
+            <android.support.v7.widget.AppCompatButton
+
+                android:id="@+id/btnOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnOrder"
+                android:textAllCaps="false"
+                android:textColor="@color/icons"
+                android:theme="@style/MyButton" />
+
+        </LinearLayout>
     </LinearLayout>
 
 

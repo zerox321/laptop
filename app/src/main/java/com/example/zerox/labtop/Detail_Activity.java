@@ -8,9 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.zerox.labtop.Model.Laptop;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 public class Detail_Activity extends AppCompatActivity {
@@ -41,11 +43,25 @@ public class Detail_Activity extends AppCompatActivity {
         placeDetail.setText(laptop.getDescription());
         TextView placeLocation = (TextView) findViewById(R.id.laptop_price);
         placeLocation.setText(laptop.getPrice() + "  EGP");
-        ImageView placePicutre = (ImageView) findViewById(R.id.image);
+        final ProgressBar PB = (ProgressBar) findViewById(R.id.Progbar);
+        final ImageView placePicutre = (ImageView) findViewById(R.id.image);
         Picasso.with(getBaseContext())
                 .load(laptop.getImage())
                 .error(R.mipmap.ic_launcher)
-                .into(placePicutre);
+                .into(placePicutre, new Callback.EmptyCallback() {
+
+                    @Override
+                    public void onSuccess() {
+                        placePicutre.setVisibility(View.VISIBLE);
+                        PB.setVisibility(View.GONE);
+                    }
+
+                    @Override
+                    public void onError() {
+                        PB.setVisibility(View.VISIBLE);
+                        placePicutre.setVisibility(View.INVISIBLE);
+                    }
+                });
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.buyFap);

@@ -36,6 +36,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+
     public static final int COL_ID = 0;
     public static final int COL_Laptop_ID = 1;
     public static final int COL_TITLE = 2;
@@ -62,12 +64,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         // Setting ViewPager for each Tabs
         viewPager = (ViewPager) findViewById(R.id.viewpager);
+
 
         // Set Tabs inside Toolbar
         tabs = (TabLayout) findViewById(R.id.tabs);
@@ -186,8 +188,8 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         getData();
 
-
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

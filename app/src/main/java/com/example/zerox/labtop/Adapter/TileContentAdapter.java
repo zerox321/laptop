@@ -8,11 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.zerox.labtop.Detail_Activity;
 import com.example.zerox.labtop.Model.Laptop;
 import com.example.zerox.labtop.R;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -39,7 +41,7 @@ public class TileContentAdapter extends RecyclerView.Adapter<TileContentAdapter.
     }
 
     @Override
-    public void onBindViewHolder(CustomViewHolder customViewHolder, int i) {
+    public void onBindViewHolder(final CustomViewHolder customViewHolder, int i) {
         Laptop laptop = Laptoplist.get(i);
 
         //Render image using Picasso library
@@ -47,13 +49,27 @@ public class TileContentAdapter extends RecyclerView.Adapter<TileContentAdapter.
             Picasso.with(mContext)
                     .load(laptop.getImage())
                     .error(R.mipmap.ic_launcher)
-                    .into(customViewHolder.imageView);
+                    .into(customViewHolder.imageView, new Callback.EmptyCallback() {
+
+                        @Override
+                        public void onSuccess() {
+                            customViewHolder.imageView.setVisibility(View.VISIBLE);
+                            customViewHolder.PB.setVisibility(View.GONE);
+                        }
+
+                        @Override
+                        public void onError() {
+                            customViewHolder.PB.setVisibility(View.VISIBLE);
+                            customViewHolder.imageView.setVisibility(View.INVISIBLE);
+                        }
+                    });
             Picasso.with(mContext).setIndicatorsEnabled(true);
 
         }
 
         //Setting text view title
         customViewHolder.TitleTv.setText(laptop.getTitle());
+        customViewHolder.TitleTv.setVisibility(View.VISIBLE);
 
     }
 
@@ -65,7 +81,7 @@ public class TileContentAdapter extends RecyclerView.Adapter<TileContentAdapter.
     class CustomViewHolder extends RecyclerView.ViewHolder {
         protected ImageView imageView;
         protected TextView TitleTv;
-
+        protected ProgressBar PB;
 
         public CustomViewHolder(View view) {
             super(view);
@@ -80,7 +96,8 @@ public class TileContentAdapter extends RecyclerView.Adapter<TileContentAdapter.
             });
             this.imageView = (ImageView) view.findViewById(R.id.tile_picture);
             this.TitleTv = (TextView) view.findViewById(R.id.tile_title);
-
+            this.PB = (ProgressBar) view.findViewById(R.id.Progbar);
+            PB.setVisibility(View.VISIBLE);
         }
     }
 }

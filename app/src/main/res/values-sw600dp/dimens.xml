@@ -5,5 +5,9 @@
     <integer name="carditem">2</integer>
 
     <integer name="carditem_land">4</integer>
-    <dimen name="avator_size">60dp</dimen>
+
+
+    <integer name="listitem">3</integer>
+    <integer name="listitem_land">5</integer>
+    <dimen name="avator_size">100dp</dimen>
 </resources>

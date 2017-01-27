@@ -29,6 +29,13 @@
             android:alpha="0.3"
             android:background="@color/dark_grey" />
 
+        <ProgressBar
+            android:id="@+id/Progbar"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:theme="@style/CircularProgress" />
         <TextView
             android:id="@+id/tile_title"
             android:layout_width="match_parent"
@@ -37,6 +44,7 @@
             android:gravity="center"
             android:textColor="@color/cardview_light_background"
             android:textSize="@dimen/article_titles"
+            android:visibility="gone"
             tools:text="@string/item_title" />
     </FrameLayout>
 
