@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
                     setupViewPager(viewPager);
                     tabs.setupWithViewPager(viewPager);
                     pd.dismiss();
-                    int pos = pref.getInt("pos", 1);
+                    int pos = pref.getInt("pos", 0);
                     viewPager.setCurrentItem(pos);
 
                 }
@@ -208,11 +208,8 @@ public class MainActivity extends AppCompatActivity {
         list = null;
         FetchFavorites fetchFavorites = new FetchFavorites(getBaseContext());
         fetchFavorites.execute();
-
         setupViewPager(viewPager);
         tabs.setupWithViewPager(viewPager);
-
-
     }
 
 
@@ -233,13 +230,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-// put your code here...
         int pos = pref.getInt("pos", 0);
-
-
         viewPager.setCurrentItem(pos, true);
-        Toast.makeText(getBaseContext(), pos + "", Toast.LENGTH_SHORT).show();
-
     }
     @Override
     protected void onStart() {

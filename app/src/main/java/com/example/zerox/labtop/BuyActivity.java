@@ -16,6 +16,7 @@ public class BuyActivity extends AppCompatActivity {
 
     EditText edName;
     EditText edPhone;
+    EditText edAddress;
     Laptop laptop;
     private DatabaseReference mDatabase;
 
@@ -28,6 +29,7 @@ public class BuyActivity extends AppCompatActivity {
 
         edName = (EditText) findViewById(R.id.ETName);
         edPhone = (EditText) findViewById(R.id.ETPhone);
+        edAddress = (EditText) findViewById(R.id.ETAddress);
 
 
         laptop = getIntent().getParcelableExtra(Detail_Activity.EXTRA_OBJECT);
@@ -35,9 +37,10 @@ public class BuyActivity extends AppCompatActivity {
         orderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setValue(edName.getText().toString(), edPhone.getText().toString(), laptop);
+                setValue(edName.getText().toString(), edPhone.getText().toString(), edAddress.getText().toString(), laptop);
                 edName.setText("");
                 edPhone.setText("");
+                edAddress.setText("");
                 Toast.makeText(BuyActivity.this, "Order is done !", Toast.LENGTH_SHORT).show();
             }
         });
@@ -46,8 +49,8 @@ public class BuyActivity extends AppCompatActivity {
 
     }
 
-    private void setValue(String name, String phone, Laptop laptop) {
-        order order = new order(name, phone, laptop.getTitle(), laptop.getPrice());
+    private void setValue(String name, String phone, String Address, Laptop laptop) {
+        order order = new order(name, phone, Address, laptop.getTitle(), laptop.getPrice());
 
         mDatabase.child("orders").child(String.valueOf(System.currentTimeMillis())).setValue(order);
 

@@ -9,5 +9,8 @@
     <string name="title_activity_buy">BuyActivity</string>
     <string name="namehint">Full name</string>
     <string name="phonehint">Phone number</string>
+    <string name="Addresshint">Address</string>
     <string name="btnOrder">Order</string>
+    <string name="empty_laptop_list">No information</string>
+
 </resources>

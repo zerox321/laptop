@@ -36,10 +36,9 @@ public class ListContentFragment extends Fragment {
         laptopDBHelper = new LaptopDBHelper(getActivity());
         ///////////
         detailList = MainActivity.list;
-        //        Toast.makeText(getContext(),detailList.get(0).getTitle(),Toast.LENGTH_LONG).show();
+
         adapter = new ListContentAdapter(recyclerView.getContext(), detailList);
         recyclerView.addItemDecoration(new SimpleDividerItemDecoration(getResources()));
-
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         // recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

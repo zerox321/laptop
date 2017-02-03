@@ -51,6 +51,27 @@
         android:textColorHint="@color/secondary_text" />
     </android.support.design.widget.TextInputLayout>
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <EditText
+            android:id="@+id/ETAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:drawableLeft="@drawable/ic_add"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/ic_add"
+            android:hint="@string/Addresshint"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/primary_text"
+            android:textColorHint="@color/secondary_text" />
+    </android.support.design.widget.TextInputLayout>
+
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/btnOrder"
         android:layout_width="match_parent"
