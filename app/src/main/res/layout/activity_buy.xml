@@ -14,9 +14,9 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:theme="@style/TextLabel">
 
-        >
-    <EditText
+        <android.support.v7.widget.AppCompatEditText
         android:id="@+id/ETName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,9 +34,9 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:theme="@style/TextLabel">
 
-        >
-    <EditText
+        <android.support.v7.widget.AppCompatEditText
         android:id="@+id/ETPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,10 +54,9 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:theme="@style/TextLabel">
 
-        >
-
-        <EditText
+        <android.support.v7.widget.AppCompatEditText
             android:id="@+id/ETAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

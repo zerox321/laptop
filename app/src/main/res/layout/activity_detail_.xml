@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/md_keylines"
                 android:text="Key Features"
-                android:textColor="?attr/colorAccent"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="@dimen/article_titles" />
 
             <TextView
@@ -98,7 +98,7 @@
                 android:layout_marginBottom="@dimen/md_keylines"
                 android:layout_marginTop="@dimen/md_keylines"
                 android:text="Price"
-                android:textColor="?attr/colorAccent"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="@dimen/article_titles" />
 
             <TextView
@@ -114,7 +114,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
-        android:tint="@color/icons"
+        app:backgroundTint="@color/colorPrimaryDark"
         app:layout_anchor="@id/appbar"
         app:layout_anchorGravity="bottom|end"
         app:srcCompat="@drawable/cart" />
